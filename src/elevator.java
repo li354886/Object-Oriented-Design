@@ -30,6 +30,21 @@ public class elevator {
         this.targetFloor = floor;
     }
 
+    public void MoveToFloor(int targetFloor){
+        if (targetFloor > currFloor) {
+            moveUp();
+        }else if (targetFloor < currFloor){
+            moveDown();
+        }else {
+            stop();
+            openDoor();
+        }
+    }
+
+    public void stop() {
+        status = Status.Stop;
+    }
+
     public void moveUp(){
         status = Status.Moving;
         currFloor += 1;
