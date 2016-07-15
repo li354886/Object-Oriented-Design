@@ -4,6 +4,10 @@ import java.util.List;
 /**
  * Created by lizhengning1 on 7/12/16.
  */
+
+/*
+* Elevator entity class, boundary class
+* */
 public class elevator {
     public int currFloor;
     public int targetFloor;
@@ -85,17 +89,25 @@ enum Status{
     Stop, Moving, ShutDown
 }
 
+/*
+ User class with two constructors from both outside and inside of elevator.
+
+ */
 class User{
     Direction direction;
     int targetFloor;
-    public void OutRequest(){
+    public void OutRequest(Direction direction){
         Request req = new Request(direction);
     }
 
-    public void InRequest(){
+    public void InRequest(int targetFloor){
         Request req = new Request(targetFloor);
     }
 }
+
+/**
+ * Control class
+ */
 
 class Handler{
 
